@@ -1,0 +1,180 @@
+
+<html>
+<head>
+<title>Job Application</title>
+</head>
+
+<body>
+
+<h2>Job Application Form</h2>
+
+<form onsubmit="return validateForm()">
+
+Full Name<br>
+<input type="text" id="name">
+<p id="e1"></p>
+
+Email<br>
+<input type="text" id="email">
+<p id="e2"></p>
+
+Age<br>
+<input type="number" id="age">
+<p id="e3"></p>
+
+Phone Number<br>
+<input type="text" id="phone">
+<p id="e4"></p>
+
+Gender<br>
+<input type="radio" name="gender" value="Male">Male
+<input type="radio" name="gender" value="Female">Female
+<p id="e5"></p>
+
+Job Position<br>
+<select id="job">
+<option value="">Select</option>
+<option>Manager</option>
+<option>Programmer</option>
+<option>Designer</option>
+</select>
+<p id="e6"></p>
+
+Years of Experience<br>
+<input type="number" id="exp">
+<p id="e7"></p>
+
+Resume<br>
+<input type="file" id="resume">
+<p id="e8"></p>
+
+Skills<br>
+<input type="checkbox" name="skill">HTML
+<input type="checkbox" name="skill">CSS
+<input type="checkbox" name="skill">JavaScript
+<p id="e9"></p>
+
+<input type="submit" value="Submit">
+
+</form>
+
+<h3 id="success"></h3>
+
+<script>
+
+function validateForm()
+{
+
+document.getElementById("e1").innerHTML="";
+document.getElementById("e2").innerHTML="";
+document.getElementById("e3").innerHTML="";
+document.getElementById("e4").innerHTML="";
+document.getElementById("e5").innerHTML="";
+document.getElementById("e6").innerHTML="";
+document.getElementById("e7").innerHTML="";
+document.getElementById("e8").innerHTML="";
+document.getElementById("e9").innerHTML="";
+document.getElementById("success").innerHTML="";
+
+let valid=true;
+
+let name=document.getElementById("name").value;
+
+if(name=="" || !/^[A-Za-z ]+$/.test(name))
+{
+document.getElementById("e1").innerHTML="Enter valid name";
+valid=false;
+}
+
+let email=document.getElementById("email").value;
+
+if(email.indexOf("@")==-1 || email.indexOf(".")==-1)
+{
+document.getElementById("e2").innerHTML="Invalid Email";
+valid=false;
+}
+
+let age=document.getElementById("age").value;
+
+if(age<18 || age>60)
+{
+document.getElementById("e3").innerHTML="Age must be between 18 and 60";
+valid=false;
+}
+
+let phone=document.getElementById("phone").value;
+
+if(!/^[0-9]{10}$/.test(phone))
+{
+document.getElementById("e4").innerHTML="Phone must contain 10 digits";
+valid=false;
+}
+
+let gender=document.getElementsByName("gender");
+let checked=false;
+
+for(let i=0;i<gender.length;i++)
+{
+if(gender[i].checked)
+checked=true;
+}
+
+if(!checked)
+{
+document.getElementById("e5").innerHTML="Select Gender";
+valid=false;
+}
+
+if(document.getElementById("job").value=="")
+{
+document.getElementById("e6").innerHTML="Select Job Position";
+valid=false;
+}
+
+if(document.getElementById("exp").value<0)
+{
+document.getElementById("e7").innerHTML="Experience cannot be negative";
+valid=false;
+}
+
+let resume=document.getElementById("resume").value;
+
+if(resume=="")
+{
+document.getElementById("e8").innerHTML="Upload Resume";
+valid=false;
+}
+else if(!resume.endsWith(".pdf"))
+{
+document.getElementById("e8").innerHTML="Only PDF allowed";
+valid=false;
+}
+
+let skills=document.getElementsByName("skill");
+let count=0;
+
+for(let i=0;i<skills.length;i++)
+{
+if(skills[i].checked)
+count++;
+}
+
+if(count==0)
+{
+document.getElementById("e9").innerHTML="Select at least one skill";
+valid=false;
+}
+
+if(valid)
+{
+document.getElementById("success").innerHTML="Application Submitted Successfully!";
+}
+
+return false;
+
+}
+
+</script>
+
+</body>
+</html>

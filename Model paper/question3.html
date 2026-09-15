@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>Movie Ticket Booking</title>
+    </head>
+    <body>
+        <h1>Movie Ticket Booking</h1>
+        <label for="numTickets">Number of Tickets:</label>
+        <input type="number" id="numTickets"><br><br>
+        <button onclick="calculate()">Submit</button>
+        <h2>Results</h2>
+        <p id="result"></p>
+        <script>
+            function calculate(){
+                var numTickets=document.getElementById("numTickets").value;
+                var budget=20000;
+                var ticketPrice=400;
+                var totalCost=numTickets*ticketPrice;
+                var remainingBudget=budget-totalCost;
+
+                document.write("<h2>Results</h2>");
+                document.write("<p>Total Cost of Tickets: $" + totalCost + "</p>")
+                document.write("<p>Remaining Budget: $" + remainingBudget + "</p>");
+            }
+        </script>
+    </body>
+</html>

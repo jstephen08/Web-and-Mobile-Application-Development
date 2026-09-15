@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title>New Form</title>
+        <script>
+            function validate(){
+                if(document.Val.name.value.length==0){
+                    alert("Username cannot be empty");
+                }
+                else if(isNaN(document.Val.grade.value)){
+                    alert("Age must be a number");
+                }
+                else if(document.Val.flavor.value==1){
+                    alert("Please choose a flavor");
+                }
+                else{
+                    alert("Validation successful!");
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <form name="Val">
+            Username:
+            <input type="text" name="name"><br><br>
+            Grade:
+            <input type="text" name="grade"><br><br>
+            Which Ice-Cream flavor do you like most?:
+            <select name="flavor">
+                <option value="1">Select a flavor</option>
+                <option value="2">Chocolate</option>
+                <option value="3">Vanilla</option>
+                <option value="4">Strawberry</option>
+                <option value="5">Oreo</option>
+            </select>
+
+            <input type="button" value="Validate" onclick="validate()">
+
+        </form>
+    </body>
+
+</html>

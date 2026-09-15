@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <title>Login Form</title>
+        <script>
+            function validate(){
+                if(document.Login.name.value.length==0){
+                    alert("Username cannot be empty!");
+                }
+                else if(isNaN(document.Login.age.value)){
+                    alert("Age must be a number!");
+                }
+                else if(!document.Login.check.checked){
+                    alert("Checkbox must be checked!");
+                }
+                else if(!document.Login.gender[0].checked &&
+                        !document.Login.gender[1].checked){
+                    alert("Please enter your gender!");
+                }
+                else{
+                    alert("Validation successful!")
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Login Form</h1>
+        <form name="Login">
+            Username:
+            <input type="text" name="name"><br><br>
+
+            Age:
+            <input type="text" name="age"><br><br>
+
+            Gender:
+            <input type="radio" name="gender" value="Male">Male
+            <input type="radio" name="gender" value="Female">Female<br><br>
+
+            Do you want to subscribe the news letter?:
+            <input type="checkbox" name="check"><br><br>
+            
+            <input type="button" value="Validate" onclick="validate()">
+
+
+        </form>
+    </body>
+</html>

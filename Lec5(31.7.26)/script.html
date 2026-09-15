@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title>Name and Welcome</title>
+        <script>
+            function hello(){
+                if(nme==""){
+                    alert("Username cannot be empty");
+                }
+                else if(pass=""){
+                    alert("Password cannot be empty");
+                }
+                else if(pass.length<6){
+                    alert("Password must contain atleast 6 characters");
+                }
+                else if(age<15){
+                    alert("Age must be atleast 15");
+                }
+                else{
+                    alert("Login Successful!");
+                }
+            }    
+
+            function clear(){
+                document.Appl.reset();
+            }
+
+        </script>
+    </head>
+    <body>
+        <h1>Login Form</h1>
+        <form name="Appl">
+            Name:
+            <input type="text" name="nme"><br><br>
+            Password:
+            <input type="password" name="pass"><br><br>
+            Age:
+            <input type="number" name="age"><br><br>
+            <input type="button" value="Login" onclick="hello()">
+            <input type="button" value="Clear" onclick="clear()">
+        </form>
+    </body>
+</html>

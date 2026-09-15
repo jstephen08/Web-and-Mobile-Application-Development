@@ -1,0 +1,45 @@
+body{
+    background: #d2daf8;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+
+}
+
+
+h2{
+    text-align: center;
+    color:rgb(39, 13, 189);
+}
+
+label{
+    display: inline-block;
+    width: 150px;
+    font-size: 18px;
+}
+
+input[type=text],
+input[type=email],
+input[type=number],
+input[type=password]{
+    width:220px;
+    padding:8px;
+}
+
+form{
+    text-align: center;
+}
+
+button{
+    margin:auto;
+    width:20%;
+    padding:12px;
+    background: rgb(55, 87, 192);
+    color:white;
+    border:none;
+    border-radius: 8px;
+    font-size: 18px;
+}
+
+button:hover{
+    background: rgb(39, 13, 189);
+}
